@@ -215,6 +215,7 @@ lav_model <- function(lavpartable      = NULL,
     if(categorical) {
         fixed.x <- TRUE
     }
+    
 
 
     Model <- new("Model",
@@ -265,19 +266,17 @@ lav_model <- function(lavpartable      = NULL,
                  cin.linear.idx      = CON$cin.linear.idx,
                  cin.nonlinear.idx   = CON$cin.nonlinear.idx,
 
-                 con.jac             = con.jac,
-                 con.lambda          = con.lambda,
+                 con.jac=con.jac,
+                 con.lambda=con.lambda,
 
-                 nexo                = nexo,
-                 fixed.x             = fixed.x,
-                 conditional.x       = conditional.x,
-                 #x.idx               = x.idx,
-                 parameterization    = parameterization,
-
-                 ov.x.dummy.ov.idx   = ov.x.dummy.ov.idx,
-                 ov.x.dummy.lv.idx   = ov.x.dummy.lv.idx,
-                 ov.y.dummy.ov.idx   = ov.y.dummy.ov.idx,
-                 ov.y.dummy.lv.idx   = ov.y.dummy.lv.idx)
+                 nexo=nexo,
+                 fixed.x=fixed.x,
+                 conditional.x=conditional.x,
+                 parameterization=parameterization,
+                 ov.x.dummy.ov.idx=ov.x.dummy.ov.idx,
+                 ov.x.dummy.lv.idx=ov.x.dummy.lv.idx,
+                 ov.y.dummy.ov.idx=ov.y.dummy.ov.idx,
+                 ov.y.dummy.lv.idx=ov.y.dummy.lv.idx)
 
     if(debug) {
          cat("lavaan DEBUG: lavaanModel\n")

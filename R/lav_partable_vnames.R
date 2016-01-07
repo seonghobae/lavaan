@@ -35,7 +35,7 @@ lav_partable_vnames <- function(partable, type = NULL, group = NULL,
     type.list <- c("ov",          # observed variables (ov)
                    "ov.x",        # (pure) exogenous observed variables
                    "ov.nox",      # non-exogenous observed variables
-                   "ov.model",    # modeled observed variables (joint vs cond)
+                   "ov.model",    # modeled observed variables (cont vs cat)
                    "ov.y",        # (pure) endogenous variables (dependent only)
                    "ov.num",      # numeric observed variables
                    "ov.ord",      # ordinal observed variables
@@ -283,10 +283,9 @@ lav_partable_vnames <- function(partable, type = NULL, group = NULL,
 
         # store ov.model
         if("ov.model" %in% type) {
-            # if no conditional.x, this is just ov
+            # if no categorical, this is just ov
             # else, this is ov.nox
-            if(any( partable$group == g & partable$op == "~" &
-                                          partable$exo == 1L )) {
+            if(any( partable$group == g & partable$op == "|" )) {
                 OUT$ov.model[[g]] <- ov.names.nox
             } else {
                 OUT$ov.model[[g]] <- ov.names

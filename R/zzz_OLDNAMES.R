@@ -11,6 +11,3 @@ getVariability <- lav_object_inspect_firstorder
 
 # rsem
 computeExpectedInformation <- lav_model_information_expected
-
-# only for simsem ....
-getParameterLabels <- lav_partable_labels
